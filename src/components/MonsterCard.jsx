@@ -99,7 +99,7 @@ function MonsterCard({ monster, onEdit, onDelete, showActions = true }) {
             <button 
               className="btn btn-warning"
               onClick={() => onEdit(monster)}
-              title="Editar criatura"
+              title="Editar monstruo"
             >
               <Edit2 size={16} />
               Editar
@@ -107,7 +107,7 @@ function MonsterCard({ monster, onEdit, onDelete, showActions = true }) {
             <button 
               className="btn btn-danger"
               onClick={handleDelete}
-              title="Eliminar criatura"
+              title="Eliminar monstruo"
             >
               <Trash2 size={16} />
               Eliminar

@@ -42,7 +42,7 @@ function App() {
   }
 
   const tabs = [
-    { id: 'monsters', label: 'Gestión de Criaturas' },
+    { id: 'monsters', label: 'Gestión de monstruos' },
     { id: 'battle', label: 'Arena de Combate' },
     { id: 'history', label: 'Historial de Combates' }
   ]
@@ -51,7 +51,7 @@ function App() {
     <div className="container">
       <div className="header">
         <h1>Sistema de Batalla de Monstruos</h1>
-        <p>Gestiona criaturas y simula combates estratégicos</p>
+        <p>Gestiona monstruos y simula combates estratégicos</p>
       </div>
 
       <div className="nav-tabs">

@@ -10,12 +10,12 @@ function BattleArena({ monsters, onBattleComplete }) {
 
   const simulateBattle = async () => {
     if (!selectedMonster1 || !selectedMonster2) {
-      alert('Por favor seleccione dos criaturas para el combate')
+      alert('Por favor seleccione dos monstruos para el combate')
       return
     }
 
     if (selectedMonster1 === selectedMonster2) {
-      alert('Una criatura no puede combatir contra sí misma')
+      alert('Una monstruo no puede combatir contra sí misma')
       return
     }
 
@@ -133,8 +133,8 @@ function BattleArena({ monsters, onBattleComplete }) {
       <div className="battle-arena">
         <h2>Arena de Combate</h2>
         <div className="loading">
-          <h3>Se necesitan al menos 2 criaturas para iniciar un combate</h3>
-          <p>Registre más criaturas en la sección "Gestión de Criaturas"</p>
+          <h3>Se necesitan al menos 2 monstruos para iniciar un combate</h3>
+          <p>Registre más monstruos en la sección "Gestión de monstruos"</p>
         </div>
       </div>
     )
@@ -146,14 +146,14 @@ function BattleArena({ monsters, onBattleComplete }) {
         
         <div className="monster-selector">
           <div className="selector-section">
-            <h3>Primera Criatura</h3>
+            <h3>Primera monstruo</h3>
             <select 
               className="monster-select"
               value={selectedMonster1}
               onChange={(e) => setSelectedMonster1(e.target.value)}
               disabled={isSimulating}
             >
-              <option value="">Seleccione una criatura...</option>
+              <option value="">Seleccione una monstruo...</option>
             {monsters.map(monster => (
               <option key={monster.id} value={monster.id}>
                 {monster.name} (HP: {monster.hp}, ATK: {monster.attack}, DEF: {monster.defense}, SPD: {monster.speed})
@@ -163,14 +163,14 @@ function BattleArena({ monsters, onBattleComplete }) {
         </div>
 
                   <div className="selector-section">
-            <h3>Segunda Criatura</h3>
+            <h3>Segunda monstruo</h3>
             <select 
               className="monster-select"
               value={selectedMonster2}
               onChange={(e) => setSelectedMonster2(e.target.value)}
               disabled={isSimulating}
             >
-              <option value="">Seleccione una criatura...</option>
+              <option value="">Seleccione una monstruo...</option>
             {monsters.map(monster => (
               <option key={monster.id} value={monster.id}>
                 {monster.name} (HP: {monster.hp}, ATK: {monster.attack}, DEF: {monster.defense}, SPD: {monster.speed})
