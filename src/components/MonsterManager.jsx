@@ -30,14 +30,14 @@ function MonsterManager({ monsters, onAddMonster, onUpdateMonster, onDeleteMonst
     <div>
       <div className="card">
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>
-          <h2>Gestión de Monstruos</h2>
+          <h2>Gestión de Criaturas</h2>
           <button 
             className="btn btn-primary"
             onClick={() => setShowForm(true)}
             disabled={showForm || editingMonster}
           >
             <Plus size={20} />
-            Agregar Monstruo
+            Agregar Criatura
           </button>
         </div>
 
@@ -54,8 +54,8 @@ function MonsterManager({ monsters, onAddMonster, onUpdateMonster, onDeleteMonst
       {monsters.length === 0 ? (
         <div className="card">
           <div className="loading">
-            <h3>No hay monstruos creados</h3>
-            <p>¡Crea tu primer monstruo para comenzar las batallas épicas!</p>
+            <h3>No hay criaturas registradas</h3>
+            <p>Crea tu primera criatura para comenzar las simulaciones de combate</p>
           </div>
         </div>
       ) : (

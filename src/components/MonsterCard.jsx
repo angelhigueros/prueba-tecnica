@@ -2,19 +2,19 @@ import { Edit2, Trash2, Heart, Sword, Shield, Zap } from 'lucide-react'
 
 function MonsterCard({ monster, onEdit, onDelete, showActions = true }) {
   const handleDelete = () => {
-    if (window.confirm(`¿Estás seguro de que quieres eliminar a ${monster.name}?`)) {
+    if (window.confirm(`¿Está seguro de que desea eliminar a ${monster.name}?`)) {
       onDelete(monster.id)
     }
   }
 
   const getStatColor = (statName, value) => {
     const colors = {
-      hp: '#e74c3c',
-      attack: '#e67e22',
-      defense: '#3498db',
-      speed: '#2ecc71'
+      hp: '#dc2626',
+      attack: '#d97706',
+      defense: '#2563eb',
+      speed: '#16a34a'
     }
-    return colors[statName] || '#666'
+    return colors[statName] || '#64748b'
   }
 
   return (
@@ -40,10 +40,12 @@ function MonsterCard({ monster, onEdit, onDelete, showActions = true }) {
             backgroundColor: '#f0f0f0',
             alignItems: 'center',
             justifyContent: 'center',
-            fontSize: '4rem'
+            fontSize: '1rem',
+            color: '#666',
+            fontWeight: 'bold'
           }}
         >
-          👹
+          SIN IMAGEN
         </div>
       </div>
       
@@ -97,7 +99,7 @@ function MonsterCard({ monster, onEdit, onDelete, showActions = true }) {
             <button 
               className="btn btn-warning"
               onClick={() => onEdit(monster)}
-              title="Editar monstruo"
+              title="Editar criatura"
             >
               <Edit2 size={16} />
               Editar
@@ -105,7 +107,7 @@ function MonsterCard({ monster, onEdit, onDelete, showActions = true }) {
             <button 
               className="btn btn-danger"
               onClick={handleDelete}
-              title="Eliminar monstruo"
+              title="Eliminar criatura"
             >
               <Trash2 size={16} />
               Eliminar

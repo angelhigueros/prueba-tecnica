@@ -10,12 +10,12 @@ function BattleArena({ monsters, onBattleComplete }) {
 
   const simulateBattle = async () => {
     if (!selectedMonster1 || !selectedMonster2) {
-      alert('Por favor selecciona dos monstruos para la batalla')
+      alert('Por favor seleccione dos criaturas para el combate')
       return
     }
 
     if (selectedMonster1 === selectedMonster2) {
-      alert('Un monstruo no puede luchar contra sí mismo')
+      alert('Una criatura no puede combatir contra sí misma')
       return
     }
 
@@ -33,7 +33,7 @@ function BattleArena({ monsters, onBattleComplete }) {
     }
 
     const log = []
-    log.push(`🏟️ ¡Comienza la batalla entre ${fighter1.name} y ${fighter2.name}!`)
+    log.push(`Iniciando combate entre ${fighter1.name} y ${fighter2.name}`)
     log.push(`${fighter1.name}: ${fighter1.currentHp} HP | ${fighter2.name}: ${fighter2.currentHp} HP`)
     
     let firstAttacker, secondAttacker
@@ -53,7 +53,7 @@ function BattleArena({ monsters, onBattleComplete }) {
       }
     }
 
-    log.push(`⚡ ${firstAttacker.name} es más rápido y atacará primero!`)
+    log.push(`${firstAttacker.name} tiene mayor velocidad y atacará primero`)
     setBattleLog([...log])
     await delay(1500)
 
@@ -65,28 +65,28 @@ function BattleArena({ monsters, onBattleComplete }) {
         const damage = calculateDamage(firstAttacker, secondAttacker)
         secondAttacker.currentHp = Math.max(0, secondAttacker.currentHp - damage)
         
-        log.push(`⚔️ ${firstAttacker.name} ataca a ${secondAttacker.name} causando ${damage} de daño`)
-        log.push(`💖 ${secondAttacker.name} tiene ahora ${secondAttacker.currentHp} HP`)
+        log.push(`${firstAttacker.name} ataca a ${secondAttacker.name} causando ${damage} de daño`)
+        log.push(`${secondAttacker.name} tiene ahora ${secondAttacker.currentHp} HP`)
         setBattleLog([...log])
         await delay(1000)
         
-        if (secondAttacker.currentHp <= 0) {
-          log.push(`💀 ${secondAttacker.name} ha sido derrotado!`)
-          break
-        }
+                  if (secondAttacker.currentHp <= 0) {
+            log.push(`${secondAttacker.name} ha sido derrotado`)
+            break
+          }
       }
 
       if (secondAttacker.currentHp > 0) {
         const damage = calculateDamage(secondAttacker, firstAttacker)
         firstAttacker.currentHp = Math.max(0, firstAttacker.currentHp - damage)
         
-        log.push(`⚔️ ${secondAttacker.name} ataca a ${firstAttacker.name} causando ${damage} de daño`)
-        log.push(`💖 ${firstAttacker.name} tiene ahora ${firstAttacker.currentHp} HP`)
+        log.push(`${secondAttacker.name} ataca a ${firstAttacker.name} causando ${damage} de daño`)
+        log.push(`${firstAttacker.name} tiene ahora ${firstAttacker.currentHp} HP`)
         setBattleLog([...log])
         await delay(1000)
         
         if (firstAttacker.currentHp <= 0) {
-          log.push(`💀 ${firstAttacker.name} ha sido derrotado!`)
+          log.push(`${firstAttacker.name} ha sido derrotado`)
           break
         }
       }
@@ -97,7 +97,7 @@ function BattleArena({ monsters, onBattleComplete }) {
     const winner = fighter1.currentHp > 0 ? fighter1 : fighter2
     const loser = fighter1.currentHp <= 0 ? fighter1 : fighter2
 
-    log.push(`\n🏆 ¡${winner.name} es el ganador de la batalla!`)
+    log.push(`${winner.name} es el ganador del combate`)
     setBattleLog([...log])
     setBattleResult({ winner, loser, turns: turn })
 
@@ -131,29 +131,29 @@ function BattleArena({ monsters, onBattleComplete }) {
   if (monsters.length < 2) {
     return (
       <div className="battle-arena">
-        <h2>⚔️ Arena de Batalla</h2>
+        <h2>Arena de Combate</h2>
         <div className="loading">
-          <h3>Se necesitan al menos 2 monstruos para comenzar una batalla</h3>
-          <p>Crea más monstruos en la sección "Gestión de Monstruos"</p>
+          <h3>Se necesitan al menos 2 criaturas para iniciar un combate</h3>
+          <p>Registre más criaturas en la sección "Gestión de Criaturas"</p>
         </div>
       </div>
     )
   }
 
-  return (
-    <div className="battle-arena">
-      <h2>⚔️ Arena de Batalla</h2>
-      
-      <div className="monster-selector">
-        <div className="selector-section">
-          <h3>👹 Primer Luchador</h3>
-          <select 
-            className="monster-select"
-            value={selectedMonster1}
-            onChange={(e) => setSelectedMonster1(e.target.value)}
-            disabled={isSimulating}
-          >
-            <option value="">Selecciona un monstruo...</option>
+      return (
+      <div className="battle-arena">
+        <h2>Arena de Combate</h2>
+        
+        <div className="monster-selector">
+          <div className="selector-section">
+            <h3>Primera Criatura</h3>
+            <select 
+              className="monster-select"
+              value={selectedMonster1}
+              onChange={(e) => setSelectedMonster1(e.target.value)}
+              disabled={isSimulating}
+            >
+              <option value="">Seleccione una criatura...</option>
             {monsters.map(monster => (
               <option key={monster.id} value={monster.id}>
                 {monster.name} (HP: {monster.hp}, ATK: {monster.attack}, DEF: {monster.defense}, SPD: {monster.speed})
@@ -162,15 +162,15 @@ function BattleArena({ monsters, onBattleComplete }) {
           </select>
         </div>
 
-        <div className="selector-section">
-          <h3>👺 Segundo Luchador</h3>
-          <select 
-            className="monster-select"
-            value={selectedMonster2}
-            onChange={(e) => setSelectedMonster2(e.target.value)}
-            disabled={isSimulating}
-          >
-            <option value="">Selecciona un monstruo...</option>
+                  <div className="selector-section">
+            <h3>Segunda Criatura</h3>
+            <select 
+              className="monster-select"
+              value={selectedMonster2}
+              onChange={(e) => setSelectedMonster2(e.target.value)}
+              disabled={isSimulating}
+            >
+              <option value="">Seleccione una criatura...</option>
             {monsters.map(monster => (
               <option key={monster.id} value={monster.id}>
                 {monster.name} (HP: {monster.hp}, ATK: {monster.attack}, DEF: {monster.defense}, SPD: {monster.speed})
@@ -190,12 +190,12 @@ function BattleArena({ monsters, onBattleComplete }) {
           {isSimulating ? (
             <>
               <Swords size={20} />
-              Batalla en curso...
+              Combate en progreso...
             </>
           ) : (
             <>
               <Play size={20} />
-              ¡Comenzar Batalla!
+              Iniciar Combate
             </>
           )}
         </button>
@@ -212,7 +212,7 @@ function BattleArena({ monsters, onBattleComplete }) {
 
       {battleLog.length > 0 && (
         <div className="battle-log">
-          <h3>📜 Registro de Batalla</h3>
+          <h3>Registro de Combate</h3>
           {battleLog.map((entry, index) => (
             <div key={index} className="battle-turn">
               {entry}
@@ -223,7 +223,7 @@ function BattleArena({ monsters, onBattleComplete }) {
 
       {battleResult && (
         <div className="battle-result">
-          🏆 ¡{battleResult.winner.name} ha ganado la batalla en {battleResult.turns} turnos!
+          {battleResult.winner.name} ha ganado el combate en {battleResult.turns} turnos
         </div>
       )}
     </div>

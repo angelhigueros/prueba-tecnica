@@ -42,16 +42,16 @@ function App() {
   }
 
   const tabs = [
-    { id: 'monsters', label: 'Gestión de Monstruos', icon: '👹' },
-    { id: 'battle', label: 'Arena de Batalla', icon: '⚔️' },
-    { id: 'history', label: 'Historial de Batallas', icon: '📜' }
+    { id: 'monsters', label: 'Gestión de Criaturas' },
+    { id: 'battle', label: 'Arena de Combate' },
+    { id: 'history', label: 'Historial de Combates' }
   ]
 
   return (
     <div className="container">
       <div className="header">
-        <h1>🐲 Batalla de Monstruos 🐲</h1>
-        <p>Crea, edita y haz batallar a tus monstruos épicos</p>
+        <h1>Sistema de Batalla de Monstruos</h1>
+        <p>Gestiona criaturas y simula combates estratégicos</p>
       </div>
 
       <div className="nav-tabs">
@@ -61,7 +61,6 @@ function App() {
             className={`tab-button ${activeTab === tab.id ? 'active' : ''}`}
             onClick={() => setActiveTab(tab.id)}
           >
-            <span>{tab.icon}</span>
             {tab.label}
           </button>
         ))}

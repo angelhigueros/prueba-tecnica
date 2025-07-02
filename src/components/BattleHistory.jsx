@@ -5,7 +5,7 @@ function BattleHistory({ battles, onDeleteBattle }) {
   const [expandedBattle, setExpandedBattle] = useState(null)
 
   const handleDeleteBattle = (battleId) => {
-    if (window.confirm('¿Estás seguro de que quieres eliminar esta batalla del historial?')) {
+    if (window.confirm('¿Está seguro de que desea eliminar este combate del historial?')) {
       onDeleteBattle(battleId)
     }
   }
@@ -44,10 +44,10 @@ function BattleHistory({ battles, onDeleteBattle }) {
   if (battles.length === 0) {
     return (
       <div className="card">
-        <h2>📜 Historial de Batallas</h2>
+        <h2>Historial de Combates</h2>
         <div className="loading">
-          <h3>No hay batallas registradas</h3>
-          <p>¡Ve a la Arena de Batalla para crear tu primera épica confrontación!</p>
+          <h3>No hay combates registrados</h3>
+          <p>Vaya a la Arena de Combate para crear su primera simulación</p>
         </div>
       </div>
     )
@@ -56,8 +56,8 @@ function BattleHistory({ battles, onDeleteBattle }) {
   return (
     <div>
       <div className="card">
-        <h2>📜 Historial de Batallas</h2>
-        <p>Aquí puedes revisar todas las batallas épicas que han tenido lugar.</p>
+        <h2>Historial de Combates</h2>
+        <p>Revise todos los combates que han sido simulados en el sistema</p>
       </div>
 
       {battles.map(battle => (
@@ -90,7 +90,7 @@ function BattleHistory({ battles, onDeleteBattle }) {
               <button
                 className="btn btn-danger"
                 onClick={() => handleDeleteBattle(battle.id)}
-                title="Eliminar batalla"
+                title="Eliminar combate"
               >
                 <Trash2 size={16} />
                 Eliminar
@@ -132,13 +132,13 @@ function BattleHistory({ battles, onDeleteBattle }) {
               </span>
             </div>
             <p style={{ color: '#666', marginTop: '5px' }}>
-              Batalla terminada en {battle.turns} turnos
+              Combate finalizado en {battle.turns} turnos
             </p>
           </div>
 
           {expandedBattle === battle.id && battle.log && (
             <div style={{ marginTop: '20px' }}>
-              <h4 style={{ marginBottom: '15px', color: '#333' }}>📋 Registro Completo de la Batalla</h4>
+              <h4 style={{ marginBottom: '15px', color: '#333' }}>Registro Completo del Combate</h4>
               <div className="battle-log" style={{ maxHeight: '300px' }}>
                 {battle.log.map((entry, index) => (
                   <div key={index} className="battle-turn">

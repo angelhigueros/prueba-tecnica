@@ -105,17 +105,17 @@ function MonsterForm({ monster, onSubmit, onCancel, isEditing = false }) {
 
   return (
     <form onSubmit={handleSubmit} className="card">
-      <h3>{isEditing ? 'Editar Monstruo' : 'Agregar Nuevo Monstruo'}</h3>
+      <h3>{isEditing ? 'Editar Criatura' : 'Agregar Nueva Criatura'}</h3>
       
       <div className="form-group">
-        <label htmlFor="name">Nombre del Monstruo *</label>
+        <label htmlFor="name">Nombre de la Criatura *</label>
         <input
           type="text"
           id="name"
           name="name"
           value={formData.name}
           onChange={handleChange}
-          placeholder="Ej: Dragón Feroz"
+          placeholder="Ej: Bestia Salvaje"
           className={errors.name ? 'error' : ''}
         />
         {errors.name && <span className="error-text">{errors.name}</span>}
@@ -206,7 +206,7 @@ function MonsterForm({ monster, onSubmit, onCancel, isEditing = false }) {
         </button>
         <button type="submit" className="btn btn-primary">
           <Save size={20} />
-          {isEditing ? 'Actualizar' : 'Guardar'} Monstruo
+          {isEditing ? 'Actualizar' : 'Guardar'} Criatura
         </button>
       </div>
     </form>
